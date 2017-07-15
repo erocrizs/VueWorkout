@@ -38,7 +38,21 @@ page.onAlert = function(subpageURL) {
 
 	var subpage = webpage.create();
 
-	if( exercises[name] ) {
+	if( exercises[name] &&
+		exercises[name].name &&
+		exercises[name].rating &&
+		exercises[name].type &&
+		exercises[name].muscle &&
+		exercises[name].muscleImg &&
+		exercises[name].equipment &&
+		exercises[name].level &&
+		exercises[name].alternatives &&
+
+		exercises[name].how && 
+		exercises[name].how.imgLeft &&
+		exercises[name].how.imgRight &&
+		exercises[name].how.steps &&
+		exercises[name].how.vid ) {
 		console.log("skipping " + subpageURL);
 		exercises.size++;
 		return;
@@ -78,13 +92,14 @@ page.onAlert = function(subpageURL) {
 				
 				exerciseDetail["type"] = otherDetails[0].querySelector('a').textContent.trim();
 				exerciseDetail["muscle"] = otherDetails[1].querySelector('a').textContent.trim();
+				exerciseDetail["muscleImg"] = document.querySelector('div#listing div div.guideImage img').getAttribute('src');
 				exerciseDetail["equipment"] = otherDetails[2].querySelector('a').textContent.trim();
 				exerciseDetail["level"] = otherDetails[3].querySelector('a').textContent.trim();
-
-
+				
 				var how = {
 					imgLeft: document.querySelector("div#Male div.exercisePhotos div.photoLeft a.thickbox").getAttribute('href'),
 					imgRight: document.querySelector("div#Male div.exercisePhotos div.photoRight a.thickbox").getAttribute('href'),
+					vid: document.querySelector('div#maleVideo video source').getAttribute('src'),
 					steps: []
 				};
 
@@ -92,8 +107,16 @@ page.onAlert = function(subpageURL) {
 				for(var i=0; i<stepList.length; i++) {
 					how.steps[i] = stepList[i].textContent.trim();
 				}
-
 				exerciseDetail["how"] = how;
+
+				var alts = [];
+				var altList = document.querySelectorAll('div#altExerciseCon div.exerciseName h3 a');
+				for(var i=0; i<altList.length; i++) {
+					var temp = altList[i].getAttribute('href').split('/');
+					alts[i] = temp[ temp.length - 1 ];
+				}
+				exerciseDetail["alternatives"] = alts;
+
 				return exerciseDetail;
 			});
 			exercises.size++;
