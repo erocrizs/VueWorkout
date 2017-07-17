@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Fierce 5 Routine</title>
+        <script src="../node_modules/vue/dist/vue.min.js"></script>
+        <script src="fierce5/loadJSON.js"></script>
+        <script src="fierce5/exercises-db.js"></script>
+        <script src="fierce5/exercise-codes.js"></script>
+        <script src="fierce5/fierce5.js"></script>
+        <link rel="stylesheet" href="fierce5/fierce5.css" />
+    </head>
+    <body>
+        <h1>Fierce 5 Routine</h1>
+        <div id="workoutA" class="workout">
+            <h2>Workout A</h2>
+            <div v-for="superset in routine" class="routineContainer">
+                <div v-for="exercise in superset" class="supersetContainer">
+                    <h3>{{exercise.detail.name}}</h3>
+                    <h4>Reps: {{exercise.reps}} ; Sets: {{exercise.sets}}</h4>
+                    <div class="instructionImg">
+                        <div><img v-bind:src="exercise.detail.how.imgLeft"/></div>
+                        <div><img v-bind:src="exercise.detail.how.imgRight"/></div>
+                    </div>
+                    <div class="instruction">
+                        <img v-bind:src="exercise.detail.muscleImg" class="muscleImg" />
+                        <div class="steps">
+                            <ol>
+                                <li v-for="step in exercise.detail.how.steps">
+                                    {{step}}
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="workoutB" class="workout">
+            <h2>Workout B</h2>
+            <div v-for="superset in routine" class="routineContainer">
+                <div v-for="exercise in superset" class="supersetContainer">
+                    <h3>{{exercise.detail.name}}</h3>
+                    <h4>Reps: {{exercise.reps}} ; Sets: {{exercise.sets}}</h4>
+                    <div class="instructionImg">
+                        <div><img v-bind:src="exercise.detail.how.imgLeft"/></div>
+                        <div><img v-bind:src="exercise.detail.how.imgRight"/></div>
+                    </div>
+                    <div class="instruction">
+                        <img v-bind:src="exercise.detail.muscleImg" class="muscleImg" />
+                        <div class="steps">
+                            <ol>
+                                <li v-for="step in exercise.detail.how.steps">
+                                    {{step}}
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+                initiateFierce5();
+        </script> 
+    </body>
+</html>

@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "phantom": "^4.0.4"
+    "phantom": "^4.0.4",
+    "vue": "^2.4.1"
   }
 }

@@ -1,0 +1,94 @@
+.workout, .supersetContainer {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: column;
+   flex-direction: column;
+}
+
+.routineContainer, .instructionImg {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: row;
+   flex-direction: row;
+}
+
+.instructionImg img {
+    max-width: 400px;
+    max-height: 225px;
+}
+
+.instructionImg div {
+    width: 404px;
+    height: 229px;
+    padding: 2px;
+
+    
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: row; /* works with row or column */
+   flex-direction: row;
+   -webkit-align-items: center;
+   align-items: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+}
+
+.instruction {
+    width: 808px;
+    padding: 2px;
+
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: row;
+   flex-direction: row;
+}
+
+.muscleImg {
+    max-width: 300px;
+    max-height: 225px;
+    flex: 0 0 0;
+}
+
+.instruction .steps {
+    flex: 1 0 0
+}
+
+.supersetContainer {
+    width: 840px;
+}
+
+.routineContainer {
+    max-width: 840px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+
+body {
+    width: 840px;
+    margin-right: auto;
+    margin-left: auto;
+
+    background-color: #ebf2f9;
+}
+
+li, h1, h2, h3, h4 {
+    font-family: "Open Sans", arial, sans-serif;
+    line-height: 1.5;
+}
+
+h3 {
+    margin-bottom: 0px;
+}
+
+.instructionImg {
+    background-color: #333388;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.supersetContainer {
+    background-color: #fbfbfb;
+    box-shadow: none;
+    padding: 10px;
+}
